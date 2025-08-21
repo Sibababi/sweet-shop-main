@@ -24,7 +24,7 @@ router
   )
   .post(
     authMiddlewers.protect,
-    authMiddlewers.restrictTo("admin"),
+    authMiddlewers.restrictTo("user"),
     dynamicMiddleware.addVarBody("order", "orderId"),
     upload.single("image"),           // multer يقرأ الصورة من الفورم
     uploadToCloudinary,  
