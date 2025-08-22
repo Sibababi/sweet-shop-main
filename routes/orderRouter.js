@@ -25,7 +25,7 @@ router
   .get(
     authMiddlewers.restrictTo("delivery"),
     dynamicMiddleware.addQuery("delivery", "userId"),
-    dynamicMiddleware.addQuery("status", "توصيل"),
+    dynamicMiddleware.addQuery("status.ar", "توصيل"),
     orderController.getAllOrder
   );
 router
