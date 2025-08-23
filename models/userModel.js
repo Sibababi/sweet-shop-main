@@ -15,9 +15,9 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, "الرجاء ادخال ايميل صالح"],
   },
-  photo: {
+  image: {
     type: String,
-    default:"/public/img/users/user-67170c5ef5bd8b5aa04189fc-1730744807172.png"
+ 
   },
   role: {
     type: String,
