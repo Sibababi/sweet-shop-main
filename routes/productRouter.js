@@ -31,9 +31,9 @@ router
      productController.getProduct)
     .patch(
       authMiddlewers.protect,
-      authMiddlewers.restrictTo("admin"),
-      imgproductMiddlewers.uploadProdectPhoto,
-      dynamicMiddleware.setPathImginBodys("prodects","image","model"),
+       authMiddlewers.restrictTo("admin"),
+    upload.single("image"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinary,   
       productController.updateProduct
   )
   .delete(

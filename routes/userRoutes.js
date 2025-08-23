@@ -1,3 +1,5 @@
+const { upload, uploadToCloudinary } = require("../middlewares/cloudysignupMiddleware");
+
 const express = require('express');
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
@@ -16,9 +18,8 @@ router.get('/resetPassword/:token', (req, res) => {
   res.render('user/resetPassword3');
 });
 router.post('/signup',
-
-  imguserMiddlewers.uploadUserPhoto,
-  dynamicMiddleware.setPathImginBody("users", "photo"),
+    upload.single("image"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinary,   
   authController.signup);
 // router.use(authMiddlewers.protect);
 router.patch('/activeMe', authMiddlewers.protect, userController.activeMe);

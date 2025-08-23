@@ -23,8 +23,8 @@ router
   .patch(
     authMiddlewers.protect,
     authMiddlewers.restrictTo("admin"),
-    imgcategurieMiddlewers.uploadCateguriePhoto,
-    dynamicMiddleware.setPathImginBody("categuries", "image"),
+    upload.single("image"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinary,   
     categurieController.updatecategurie)
   .delete(
     authMiddlewers.protect,
