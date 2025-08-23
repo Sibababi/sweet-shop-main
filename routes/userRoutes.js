@@ -39,8 +39,9 @@ router.get(
 router.patch(
   '/updateMe',
   authMiddlewers.protect,
-  imguserMiddlewers.uploadUserPhoto,
-  dynamicMiddleware.setPathImginBody("users", "photo"),
+    upload.single("image"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinary,   
+  authController.signup);
   userController.updateMe
 );
 router.delete('/deleteMe', authMiddlewers.protect, userController.deleteMe);
