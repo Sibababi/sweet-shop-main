@@ -41,9 +41,7 @@ router.patch(
   authMiddlewers.protect,
     upload.single("image"),           // multer يقرأ الصورة من الفورم
     uploadToCloudinary,   
-  authController.signup);
-  userController.updateMe
-);
+  userController.updateMe);
 router.delete('/deleteMe', authMiddlewers.protect, userController.deleteMe);
 // router.use(authMiddlewers.restrictTo('admin'));
 router
