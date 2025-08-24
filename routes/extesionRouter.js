@@ -19,7 +19,7 @@ router
 router
   .route("/") //استعلام عن اضفات طلب محدد
   .get(
-    authMiddlewers.protect,
+    authMiddlewers.protect,authMiddlewers.restrictTo("admin"),
     dynamicMiddleware.addQuery("order", "orderId"),
     extesionController.getAllextesion
   )
@@ -33,7 +33,7 @@ router
   );  
 router
   .route("/:id")
-  .get(authMiddlewers.protect, extesionController.getextesion)
+  .get(authMiddlewers.protect,authMiddlewers.restrictTo("admin"), extesionController.getextesion)
   .patch(
     authMiddlewers.protect,
     authMiddlewers.restrictTo("user"),
