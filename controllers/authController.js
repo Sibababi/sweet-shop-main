@@ -40,7 +40,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     phone: req.body.phone,
-    image: req.body.image,
+    photo: req.body.photo,
   });
   // const url = `${req.protocol}://${req.get("host")}/me`;
   // await new Email(newUser, url).sendWelcome();

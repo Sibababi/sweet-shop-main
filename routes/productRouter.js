@@ -1,4 +1,5 @@
 const { upload, uploadToCloudinary } = require("../middlewares/cloudyproductMiddleware");
+const uploadToCloudinaryForUpdate=require("../middlewares/updates");
 const express = require("express");
 const router = express.Router();
 const authMiddlewers = require("../middlewares/authMiddlewers");
@@ -32,8 +33,8 @@ router
     .patch(
       authMiddlewers.protect,
        authMiddlewers.restrictTo("admin"),
-    upload.single("image"),           // multer يقرأ الصورة من الفورم
-    uploadToCloudinary,   
+        upload.single("image"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinaryForUpdate,    
       productController.updateProduct
   )
   .delete(

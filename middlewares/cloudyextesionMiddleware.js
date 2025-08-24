@@ -1,3 +1,4 @@
+const AppError = require("../utils/appError");
 const multer = require("multer");
 const { v2: cloudinary } = require("cloudinary");
 const streamifier = require("streamifier"); // لتحويل buffer لـ stream
@@ -21,7 +22,7 @@ const upload = multer({
 // Middleware لرفع الصورة على Cloudinary
 const uploadToCloudinary = (req, res, next) => {
   if (!req.file) {
-    return next(new AppError("يجب ادخال صورة الصنف", 400));
+    return next(new AppError("يجب ادخال الاضافة ", 400));
   }
 
   const stream = cloudinary.uploader.upload_stream(

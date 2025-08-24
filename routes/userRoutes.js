@@ -1,5 +1,5 @@
 const { upload, uploadToCloudinary } = require("../middlewares/cloudysignupMiddleware");
-
+const uploadToCloudinaryForUpdate=require("../middlewares/updates");
 const express = require('express');
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
@@ -18,7 +18,7 @@ router.get('/resetPassword/:token', (req, res) => {
   res.render('user/resetPassword3');
 });
 router.post('/signup',
-    upload.single("image"),           // multer يقرأ الصورة من الفورم
+    upload.single("photo"),           // multer يقرأ الصورة من الفورم
     uploadToCloudinary,   
   authController.signup);
 // router.use(authMiddlewers.protect);
@@ -39,9 +39,9 @@ router.get(
 router.patch(
   '/updateMe',
   authMiddlewers.protect,
-    upload.single("image"),           // multer يقرأ الصورة من الفورم
-    uploadToCloudinary,   
-  userController.updateMe);
+    upload.single("photo"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinaryForUpdate,
+       userController.updateMe);
 router.delete('/deleteMe', authMiddlewers.protect, userController.deleteMe);
 // router.use(authMiddlewers.restrictTo('admin'));
 router

@@ -15,7 +15,8 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, "الرجاء ادخال ايميل صالح"],
   },
-  image: {
+  photo: {
+     required: [true, "يجب ادخال الصورة"],
     type: String,
  
   },

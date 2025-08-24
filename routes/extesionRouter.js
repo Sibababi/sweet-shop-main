@@ -1,3 +1,4 @@
+const uploadToCloudinaryForUpdate=require("../middlewares/updates")
 const { upload, uploadToCloudinary } = require("../middlewares/cloudyextesionMiddleware");
 const extesionController = require("../controllers/extesionController");
 const authMiddlewers = require("../middlewares/authMiddlewers");
@@ -10,9 +11,9 @@ router
   .post(
     authMiddlewers.protect,
     authMiddlewers.restrictTo("user"),
-    dynamicMiddleware.addVarBody("order", "orderId"),
     upload.single("image"),           // multer يقرأ الصورة من الفورم
-    uploadToCloudinary,  
+    uploadToCloudinaryForUpdate,  
+      dynamicMiddleware.addVarBody("order", "orderId"),
     extesionController.createextesion
   );
 router
@@ -25,9 +26,9 @@ router
   .post(
     authMiddlewers.protect,
     authMiddlewers.restrictTo("user"),
-    dynamicMiddleware.addVarBody("order", "orderId"),
     upload.single("image"),           // multer يقرأ الصورة من الفورم
     uploadToCloudinary,  
+      dynamicMiddleware.addVarBody("order", "orderId"),
     extesionController.createextesion
   );  
 router
@@ -36,6 +37,8 @@ router
   .patch(
     authMiddlewers.protect,
     authMiddlewers.restrictTo("user"),
+        upload.single("image"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinaryForUpdate,  
     extesionController.updateextesion
   )
   .delete(

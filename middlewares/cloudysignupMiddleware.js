@@ -29,7 +29,7 @@ const uploadToCloudinary = (req, res, next) => {
     (error, result) => {
       if (error) return next(error);
       // رابط الصورة النهائي يوصل للـ controller
-      req.body.image = result.secure_url;
+      req.body.photo = result.secure_url;
       next();
     }
   );

@@ -1,5 +1,6 @@
 
 const { upload, uploadToCloudinary } = require("../middlewares/cloudycategouriMiddleware");
+const uploadToCloudinaryForUpdate=require("../middlewares/updates");
 const categurieController = require("../controllers/categurieController");
 const authMiddlewers = require('../middlewares/authMiddlewers');
 const dynamicMiddleware = require("../middlewares/dynamicMiddleware");
@@ -23,8 +24,8 @@ router
   .patch(
     authMiddlewers.protect,
     authMiddlewers.restrictTo("admin"),
-    upload.single("image"),           // multer يقرأ الصورة من الفورم
-    uploadToCloudinary,   
+        upload.single("image"),           // multer يقرأ الصورة من الفورم
+    uploadToCloudinaryForUpdate,   
     categurieController.updatecategurie)
   .delete(
     authMiddlewers.protect,
