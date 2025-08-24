@@ -16,8 +16,9 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, "الرجاء ادخال ايميل صالح"],
   },
   photo: {
-     required: [true, "يجب ادخال الصورة"],
+    //  required: [true, "يجب ادخال الصورة"],
     type: String,
+    default: "https://res.cloudinary.com/drm0dfbp5/image/upload/v1756067068/photome/pslxdf3fiova3vsgkhgn.jpg"
  
   },
   role: {
