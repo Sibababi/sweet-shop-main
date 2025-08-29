@@ -26,8 +26,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
-
-
+port=7000||process.env.PORT
 // Implement CORS
 //سماح للمواقع من الاتصال بالخدمة
 app.use(bodyParser.json());
@@ -127,9 +126,9 @@ process.on("uncaughtException", (err) => {
 mongoose
   .connect(process.env.DATABASE_URL)
   .then((result) => {
-    app.listen(process.env.PORT, () => {
+    app.listen(port, () => {
       console.log(
-        `Example app listening at http://localhost:${process.env.PORT}/docs`
+        `Example app listening at http://localhost:${port}/docs`
       );
     });
   })
