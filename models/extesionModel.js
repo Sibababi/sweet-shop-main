@@ -9,10 +9,8 @@ const extesionSchema = new mongoose.Schema(
     
     },
     description: {
-      ar:{ required: [true, "must enter description"],
-        type: String,},
-      en:{required: [true, "يجب ادخال الوصف"],
-      type: String,}
+    required: [true, "يجب ادخال الوصف"],
+      type: String,
     },
     order: {
       required: [true, "must enter order"],
