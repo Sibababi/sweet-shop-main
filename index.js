@@ -17,6 +17,11 @@ const errorGlobal = require("./controllers/errorController");
 const swaggerUI = require("swagger-ui-express");
 const swaggerSpec=require('./swagger/swagger');
 const bodyParser = require('body-parser');
+const cc={
+  origin: "*",
+  Credential:true,
+  methods: ["GET","POST","PUT","PATCH","DELETE"]
+}
 //2
 // Start express app
 const app = express();
@@ -33,15 +38,15 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.DATABASE_URL)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
-app.use(cors());
-app.use(cors());
+app.use(cors(cc));
+
 //تحديد المواقع المسموح لها بالاتصال
 // في حال وجود اكثر من موقع يتم تمرير مصفوفة بعناوين المواقع
 // app.use(cors({
 //   origin: 'https://www.website.com'
 // }))
 //السماح بالاتصال على جميع الموارد
-app.options("*", cors());
+app.options("*", cors(cc));
 //تحديد المسار او المورد المسموح الاتصال به
 // app.options('/api/v1/resource', cors());
 
