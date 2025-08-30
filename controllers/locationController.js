@@ -1,4 +1,4 @@
-const Location = require('../models/LocationModel');
+const Location = require('../models/locationModel');
 const factory = require("../utils/handlerFactory");
 const catchAsync = require("../utils/catchAsync");
 exports.getAllLocation = factory.getAll(Location);
