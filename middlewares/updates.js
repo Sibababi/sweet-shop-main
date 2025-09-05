@@ -13,7 +13,7 @@ const uploadToCloudinaryForUpdate = (req, res, next) => {
       if (error) return next(error);
 
       // إذا رفع صورة جديدة → نحدّث الرابط
-      req.body.photo = result.secure_url;
+      req.body.image = result.secure_url;
       next();
     }
   );

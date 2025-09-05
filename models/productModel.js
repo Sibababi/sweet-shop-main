@@ -49,7 +49,8 @@ const productSchema = new mongoose.Schema(
           trim: true,
           required: [true,"must be entered product size"],
           enum:["large", "medium", "small"]}, 
-          price:{type:Number,required:[true,"يجب ادخال سعر كل حجم"]}
+          price:{type:Number,required:[true,"يجب ادخال سعر كل حجم"]},
+           weight:{type:Number,required:[true,"يجب ادخال وزن كل حجم"]}
     }],
     shape: {
       ar:{
