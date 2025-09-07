@@ -122,8 +122,8 @@ exports.createOrder = catchAsync(async (req, res, next) => {
       return next(new AppError("Location is not defund", 400));
     // تعيين إحداثيات النقطتين
     const point1 = {
-      latitude: 23.2025,
-      longitude: 33.0032,
+      latitude: 36.57,
+      longitude: 37.45,
     };
     const point2 = {
       latitude: locationUser.Latitude,
@@ -188,8 +188,8 @@ exports.updateOrderErr = catchAsync(async (req, res, next) => {
       return next(new AppError("Location is not defund", 400));
     // تعيين إحداثيات النقطتين
     const point1 = {
-      latitude: "23.2025",
-      longitude: "33.0032",
+      latitude: "36.57",
+      longitude: "37.45",
     };
     const point2 = {
       latitude: locationUser.Latitude,
